@@ -10,5 +10,5 @@ jobs:
       body: "Create PR"
       head: "test997"
       base: "main"
-      repository: $GITHUB_REPOSITORY
+      repository: ${{ github.repository }}
       labels: "bug"
