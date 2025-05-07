@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 jobs:
   create_pr:
-    uses: bahag-banasiks/github-actions-create-auto-pull-request/.github/workflows/actions.yaml@main
+    uses: bahag-banasiks/github-actions-create-auto-pull-request/.github/workflows/action.yml@main
     with:
       token: ${{ secrets.GITHUB_TOKEN }}
       title: "Create PR"
