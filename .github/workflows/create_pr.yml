@@ -25,9 +25,3 @@ jobs:
           base: "main"
           repo: ${{ github.repository }}
           labels: "bug"
-
-      - name: print
-        run: |
-          echo ${{ steps.create_pr.outputs.pull_request_url }}
-          echo ${{ steps.create_pr.outputs.pull_request_number }}
-          echo ${{ steps.create_pr.outputs.head_sha }}
