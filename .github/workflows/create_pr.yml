@@ -16,7 +16,7 @@ jobs:
 
       - name: create PR
         id: create_pr
-        uses: bahag-banasiks/github-actions-create-auto-pull-request/.github/workflows
+        uses: bahag-banasiks/github-actions-create-auto-pull-request/.github/workflows/custom_actions@main
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           title: "Create PR"
