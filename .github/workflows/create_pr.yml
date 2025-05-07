@@ -3,12 +3,31 @@ on:
   workflow_dispatch:
 jobs:
   create_pr:
-    uses: bahag-banasiks/github-actions-create-auto-pull-request/.github/workflows/action.yml@main
-    with:
-      token: ${{ secrets.GITHUB_TOKEN }}
-      title: "Create PR"
-      body: "Create PR"
-      head: "test997"
-      base: "main"
-      repo: ${{ github.repository }}
-      labels: "bug"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: "read"
+      pull-requests: "write"
+      id-token: "write"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: create PR
+        id: create_pr
+        uses: bahag-banasiks/github-actions-create-auto-pull-request/.github/workflows/action.yml@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: "Create PR"
+          body: "Create PR"
+          head: "test997"
+          base: "main"
+          repo: ${{ github.repository }}
+          labels: "bug"
+
+      - name: print
+        run: |
+          echo ${{ steps.create_pr.outputs.pull_request_url }}
+          echo ${{ steps.create_pr.outputs.pull_request_number }}
+          echo ${{ steps.create_pr.outputs.head_sha }}
